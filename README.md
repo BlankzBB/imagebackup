@@ -15,10 +15,10 @@ This is where the archive will be stored. make sure there is a **/** at the end 
 ### seconds (line 6)
 this will determine how often it will scan the directory. 
 
-### archiveName
+### archiveName (line 9)
 the name of the archive.
 
-### compression
+### compression (line 10)
 whether or not the program will compress the zip file.
 
 enjoy
