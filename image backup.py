@@ -11,20 +11,23 @@ compression = True #True or False.
 archive = archiveDir+archiveName
 
 def main():
+    cType = compress() #if compression is on or not
     while 1 > 0:
         check = archiveCheck() #checking if the archive exists
         pics = fileCheck(check) #making a list of images that arent in the archive
-        cType = compress() #if compression is on or not
-        archiveWrite(pics, check, cType) #the good stuff
-        print('sleeping for '+str(seconds/60) +" minutes")
+        if len(pics) > 0:
+            archiveWrite(pics, check, cType) #the good stuff
+        else:
+            print('No new files to add to archive')
+        print('sleeping for '+str(seconds/60) +" minutes\n")
         time.sleep(seconds)#zzz
 
 def archiveCheck():
     if zipfile.is_zipfile(archive) is True:#checking if archive is a zipfile.
-        print('Archive exists')
+        print('\nArchive exists')
         return True
     else:
-        print("Archive does not exist")
+        print("\nArchive does not exist")
         return False
 
 def fileCheck(check):
